@@ -1,0 +1,8 @@
+# macOS
+.DS_Store
+
+# WorkBuddy 项目数据（含本地记忆，不纳入开源仓库）
+.workbuddy/
+
+# 本地编译产物
+*.app

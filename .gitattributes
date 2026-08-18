@@ -1,0 +1,11 @@
+# Auto-detect text files and normalize line endings to LF on checkin/checkout.
+* text=auto eol=lf
+
+# Swift & Markdown are source; let GitHub Linguist classify them.
+*.swift linguist-detectable=true
+*.md linguist-detectable=true
+
+# Binary assets: never diff or merge as text.
+*.icns binary
+*.png binary
+*.zip binary

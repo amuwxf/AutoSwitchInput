@@ -74,6 +74,15 @@ open AutoSwitchInput.app
 
 ---
 
+## 界面预览 / Preview
+
+> 下图为界面示意图，风格与真实运行效果一致；真实截图见 [docs/screenshots](./docs/screenshots)。
+> The image below is a mockup matching the actual UI; real captures live in [docs/screenshots](./docs/screenshots).
+
+![AutoSwitchInput 主窗口示意](./docs/screenshots/main-window.png)
+
+---
+
 ## 项目结构 / Project Structure
 
 ```

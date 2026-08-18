@@ -6,3 +6,7 @@
 
 # 本地编译产物
 *.app
+
+# 备份与图标构建中间产物
+Backups/
+Resources/icon_src/AppIcon.iconset/

@@ -10,3 +10,5 @@
 # 备份与图标构建中间产物
 Backups/
 Resources/icon_src/AppIcon.iconset/
+# 一次性生成的旧图标源图（保留生成脚本与深灰图标源）
+Resources/icon_src/A_*.png

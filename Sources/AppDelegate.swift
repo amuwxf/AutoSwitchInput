@@ -15,7 +15,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         setupMonitor()
         RuleStore.shared.applyLaunchAtLogin() // 同步开机启动（登录项）状态
         setupKeyMonitor() // ⌘W 关闭主窗口（不退出应用）
-        showSettings() // 启动即打开设置窗口，便于首次配置
+        // 纯菜单栏后台应用：启动后安静留在后台，不自动弹窗；
+        // 用户点击菜单栏图标或右键菜单「设置…」时再打开主窗口。
     }
 
     // 点击 Dock 图标时打开设置窗口（应用改为 regular 模式后生效）

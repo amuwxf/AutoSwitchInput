@@ -12,6 +12,9 @@ and this project is licensed under GPLv3.
 ### Added
 - 中英文 README 与 CHANGELOG。 / Bilingual README and CHANGELOG.
 
+### Changed
+- **转为纯菜单栏后台应用**：`Info.plist` 增加 `LSUIElement=true`，移除 Dock 图标，仅保留顶部菜单栏图标；启动与关闭窗口都安静留在后台（不再自动弹窗）。 / Converted to a menu-bar background agent: added `LSUIElement=true`, removed the Dock icon, kept only the status-bar item; launches and stays resident in the background without auto-opening the window.
+
 ---
 
 ## [2026-08-18] — Initial development (single-day iteration)

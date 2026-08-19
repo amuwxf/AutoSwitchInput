@@ -18,11 +18,11 @@
 - **按应用自动切换** / **Per-app auto switch** — 监听前台 App 切换，80ms 防抖后匹配规则并切换输入法 / Watches the active app (80ms debounce) and applies the matching rule.
 - **规则化管理** / **Rule-based** — 每条规则 = 应用（Bundle ID）+ 目标输入法，支持下拉选择、即时生效 / Each rule maps a bundle ID to an input source, with a live dropdown picker.
 - **内置默认规则** / **Sensible defaults** — 首次启动自动写入：Terminal / iTerm2 / VS Code / Xcode / Warp → ABC（英文）；微信 → 拼音（简体）/ Seeded on first launch: Terminal/iTerm2/VS Code/Xcode/Warp → ABC; WeChat → Pinyin.
-- **双入口** / **Two entries** — 同时拥有 Dock 图标与菜单栏常驻图标；点击菜单栏图标左键打开主窗口，右键弹出菜单 / Both a Dock icon and a persistent status-bar item (left-click opens the window, right-click shows a menu).
+- **纯菜单栏后台** / **Menu-bar background agent** — 无 Dock 图标，仅顶部菜单栏常驻图标；启动与关闭窗口都安静留在后台，点击图标随时打开主窗口 / No Dock icon; a persistent menu-bar item only. Launches and stays resident in the background; click the icon to open the window anytime.
 - **液态玻璃界面** / **Liquid Glass UI** — 在 macOS 26 (Tahoe) 上呈现系统原生液态玻璃质感（窗口材质 + 卡片玻璃 + 规则行玻璃），旧系统自动回退为毛玻璃 / Native Liquid Glass on macOS 26 (Tahoe); gracefully falls back to a thin-material look on older macOS.
 - **深灰主题** / **Deep-gray theme** — 统一深灰强调色与 Dock 图标，取代默认蓝色 / A consistent deep-gray accent and app icon, replacing the default blue.
 - **开机启动** / **Launch at login** — 通用设置中一键开启「登录后自动运行」/ Toggle "launch at login" in General settings.
-- **⌘W 关闭窗口** / **⌘W to close** — 关闭主窗口后应用常驻菜单栏，点 Dock 图标可随时重新打开 / Closing the window keeps the app resident in the menu bar; click the Dock icon to reopen.
+- **⌘W 关闭窗口** / **⌘W to close** — 关闭主窗口后应用常驻菜单栏，点菜单栏图标可随时重新打开 / Closing the window keeps the app resident in the menu bar; click the menu-bar icon to reopen.
 
 ---
 
@@ -62,7 +62,7 @@ open AutoSwitchInput.app
 
 ## 使用 / Usage
 
-1. 启动后主窗口自动弹出；窗口关闭后应用常驻菜单栏 / The main window opens on launch; after closing, the app stays in the menu bar.
+1. 启动后安静留在后台（菜单栏图标常驻），点击菜单栏图标打开主窗口；窗口关闭后应用依然常驻后台 / Launches quietly in the background (persistent menu-bar icon); click the icon to open the window. After closing, the app stays resident.
 2. **通用** / **General**
    - 启用自动切换：总开关 / *Enable auto switch* — master toggle.
    - 默认输入法：无匹配规则时的兜底输入法 / *Default input source* — fallback when no rule matches.

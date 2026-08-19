@@ -24,6 +24,9 @@
     <true/>
     <key>LSApplicationCategoryType</key>
     <string>public.app-category.utilities</string>
+    <!-- 后台菜单栏应用：不显示 Dock 图标，仅保留顶部菜单栏图标，启动/关闭窗口均安静留在后台 -->
+    <key>LSUIElement</key>
+    <true/>
     <key>CFBundleIconFile</key>
     <string>AppIcon</string>
 </dict>

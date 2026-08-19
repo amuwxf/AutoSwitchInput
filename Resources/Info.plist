@@ -29,5 +29,13 @@
     <true/>
     <key>CFBundleIconFile</key>
     <string>AppIcon</string>
+    <!-- 声明支持的语言，使 TIS 输入法名称跟随系统语言（中文系统显示「简体拼音」而非英文「Pinyin – Simplified」） -->
+    <key>CFBundleLocalizations</key>
+    <array>
+        <string>en</string>
+        <string>zh-Hans</string>
+    </array>
+    <key>CFBundleDevelopmentRegion</key>
+    <string>zh-Hans</string>
 </dict>
 </plist>

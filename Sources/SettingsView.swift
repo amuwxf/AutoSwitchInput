@@ -41,26 +41,32 @@ struct SettingsView: View {
             VStack(alignment: .leading, spacing: Design.spacing4) {
                 Text("通用").font(.headline)
 
-                Toggle(isOn: $store.autoSwitchEnabled) {
+                HStack(spacing: Design.spacing4) {
+                    Toggle(isOn: $store.autoSwitchEnabled) { }
+                        .toggleStyle(.switch)
+                        .tint(Design.accent)
+                        .labelsHidden()
                     VStack(alignment: .leading, spacing: 2) {
                         Text("启用自动切换").font(.body.weight(.medium))
                         Text("切换应用时，按规则自动匹配输入法").font(.caption).foregroundStyle(.secondary)
                     }
+                    Spacer()
                 }
-                .toggleStyle(.switch)
-                .tint(Design.accent)
 
                 Divider().padding(.vertical, Design.spacing1)
 
                 // 开机启动（登录项）
-                Toggle(isOn: $store.launchAtLogin) {
+                HStack(spacing: Design.spacing4) {
+                    Toggle(isOn: $store.launchAtLogin) { }
+                        .toggleStyle(.switch)
+                        .tint(Design.accent)
+                        .labelsHidden()
                     VStack(alignment: .leading, spacing: 2) {
                         Text("开机启动").font(.body.weight(.medium))
                         Text("登录系统后自动运行本应用").font(.caption).foregroundStyle(.secondary)
                     }
+                    Spacer()
                 }
-                .toggleStyle(.switch)
-                .tint(Design.accent)
 
                 Divider().padding(.vertical, Design.spacing1)
 

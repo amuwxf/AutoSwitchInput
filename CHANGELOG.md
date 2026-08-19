@@ -14,6 +14,10 @@
 ### 变更
 - **转为纯菜单栏后台应用**：`Info.plist` 增加 `LSUIElement=true`，移除 Dock 图标，仅保留顶部菜单栏图标；启动与关闭窗口都安静留在后台（不再自动弹窗）。
 
+### 修复
+- **输入法下拉去重与中文化**：`InputMethodManager` 过滤掉 `TISTypeKeyboardInputMethodModeEnabled` 父容器类型（如"简体中文"包裹"简体拼音"造成的重复项），并加名称去重兜底；`Info.plist` 声明 `CFBundleLocalizations`（en/zh-Hans），使输入法名称跟随系统语言显示「简体拼音」而非英文「Pinyin – Simplified」。
+- **通用设置开关位置**：「启用自动切换」「开机启动」两个开关改为显示在文字左侧（开关 + 文字 的横向排列）。
+
 ---
 
 ## [2026-08-18] — 初始开发（单日迭代）

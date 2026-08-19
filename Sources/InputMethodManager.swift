@@ -26,6 +26,7 @@ class InputMethodManager {
         let cfArray = unmanaged.takeRetainedValue()
         let count = CFArrayGetCount(cfArray)
         var sources: [InputSource] = []
+        var seenNames = Set<String>()
 
         for i in 0..<count {
             let rawPtr = CFArrayGetValueAtIndex(cfArray, i)!
@@ -43,6 +44,15 @@ class InputMethodManager {
                 if !CFBooleanGetValue(enabled) { continue }
             }
 
+            // Filter: exclude parent-container IMEs (type "TISTypeKeyboardInputMethodModeEnabled").
+            // These are redundant wrappers around the real, selectable input mode
+            // (e.g. "Chinese, Simplified" wraps "Pinyin – Simplified"), causing duplicate
+            // entries in the picker. Keep only layouts and the actual input modes.
+            if let typePtr = TISGetInputSourceProperty(source, kTISPropertyInputSourceType) {
+                let type = Unmanaged<CFString>.fromOpaque(typePtr).takeUnretainedValue() as String
+                if type == "TISTypeKeyboardInputMethodModeEnabled" { continue }
+            }
+
             // Get ID
             guard let idPtr = TISGetInputSourceProperty(source, kTISPropertyInputSourceID) else { continue }
             let id = Unmanaged<CFString>.fromOpaque(idPtr).takeUnretainedValue() as String
@@ -50,6 +60,10 @@ class InputMethodManager {
             // Get localized name
             guard let namePtr = TISGetInputSourceProperty(source, kTISPropertyLocalizedName) else { continue }
             let name = Unmanaged<CFString>.fromOpaque(namePtr).takeUnretainedValue() as String
+
+            // 去重：同名输入源（极少数情况下多个 ID 共享显示名）只保留第一个
+            if seenNames.contains(name) { continue }
+            seenNames.insert(name)
 
             sources.append(InputSource(id: id, name: name))
         }

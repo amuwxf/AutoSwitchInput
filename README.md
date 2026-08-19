@@ -1,5 +1,7 @@
 # AutoSwitchInput
 
+[English version](./README_EN.md) · 中文文档
+
 > 按应用自动切换 macOS 输入法的菜单栏小工具。
 
 ---
